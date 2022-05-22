@@ -24,7 +24,7 @@ function generatePassword() {
   var numberInpassword = confirm("Click OK if you want a number in your password");
   var lowerInpassword = confirm("Click OK if you want a lowercase letter in your password");
   var upperInpasswprd = confirm("Click OK if you want an upercase leter in your password");
-  
+
 
   //Loop if no paramaters are selected.
   while (lowerInpassword === false && upperInpasswprd === false && specialInpassword === false && numberInpassword === false) {
@@ -37,19 +37,19 @@ function generatePassword() {
 
   //Loop that determines what characters will be included in your password.
   var passwordCharacters = []
-    if (specialInpassword) {
+  if (specialInpassword) {
     passwordCharacters = passwordCharacters.concat(special)
-    }
-    if (numberInpassword) {
+  }
+  if (numberInpassword) {
     passwordCharacters = passwordCharacters.concat(number)
-    }
-    if (lowerInpassword) {
-      passwordCharacters = passwordCharacters.concat(lowerLetter)
-    }
-    if (upperInpasswprd) {
-      passwordCharacters = passwordCharacters.concat(upperLetter)
-    }
-    console.log(passwordCharacters)
+  }
+  if (lowerInpassword) {
+    passwordCharacters = passwordCharacters.concat(lowerLetter)
+  }
+  if (upperInpasswprd) {
+    passwordCharacters = passwordCharacters.concat(upperLetter)
+  }
+  console.log(passwordCharacters)
 
   var password = ""
   for (var i = 0; i < passwordLength; i++) {
@@ -65,8 +65,4 @@ function writePassword() {
   passwordText.value = password;
   //Displays password in the console.
   console.log(`your password is ${password}`);
-
-  // // Add event listener to generate button
-  // generateBtn.addEventListener("click", writePassword());
-  // console.log(`your password is + ${randomPassword}`);
 }
