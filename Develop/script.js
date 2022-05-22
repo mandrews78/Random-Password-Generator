@@ -1,18 +1,66 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate").addEventListener("click",writePassword);
+// Assignment Code with added event listener.  When button is clicked you will be prompted with questions.
+var generateBtn = document.querySelector("#generate").addEventListener("click", writePassword);
+
+//Arrays for password characters
+//var passwordCharacters = ["0123456789abcdefghijklmnopqrstvwxyz!@#$%^&*()_+=`~ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+var lowerLetter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var special = ["@", "!", "%", "&", "#", "*", "+", "-", "$", "^", "<", ">", "?", "~", ".", ","];
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+
 
 
 //Prompt asking for how many characters the user would like in their passowrd.  It can be between 8 and 128 characters.
-function generatePassword(){
-  var confirmLength = (prompt("How many characters do you want your password to contian?"));
-  if (confirmLength <=7 || confirmLength >=128) {
+function generatePassword() {
+  var passwordLength = (prompt("How many characters do you want your password to contain?"));
+
+  while (passwordLength <= 7 || passwordLength >= 128) {
     alert("Password length must be between 8-128 characters, Please try again");
-    var confirmLength = (prompt("How many characters do you want your password to contain?"));
+    var passwordLength = (prompt("How many characters do you want your password to contain?"));
   }
-  debugger
   //Alert box that displays number of characters the password will have
-  alert (`Your password will contain ${confirmLength} characters`);
+    alert(`Your password will contain ${passwordLength} characters`);
+
+  //Alert box that determines the characters you want included in your password.
+    var lowerInpassword = confirm("Click OK if you want a lowercase letter in your password");
+    var upperInpasswprd = confirm("Click OK if you want an upercase leter in your password");
+    var specialInpassword = confirm("Click OK if you want a special character in your password");
+    var numberInpassword = confirm("Click OK if you want a number in your password");
+  
+  //Loop if no paramaters are selected.
+  while (lowerInpassword === false && upperInpasswprd === false && specialInpassword === false && numberInpassword === false) {
+    alert("You must click OK for at least one of the parameters");
+    var lowerInpassword = confirm("Click OK if you want a lowercase letter in your password");
+    var upperInpasswprd = confirm("Click OK if you want an upercase leter in your password");
+    var specialInpassword = confirm("Click OK if you want a special character in your password");
+    var numberInpassword = confirm("Click OK if you want a number in your password");
+  }
+  var passwordCharacters = []
+  if(lowerInpassword){
+    passwordCharacters  = passwordCharacters.concat(lowerLetter)
+    console.log(lowerLetter)
+  }
+  if(upperInpasswprd){
+    passwordCharacters = passwordCharacters.concat(upperLetter)
+  }
+  if(specialInpassword) {
+    passwordCharacters = passwordCharacters.concat(special)
+  }
+  if(numberInpassword) {
+    passwordCharacters = passwordCharacters.concat(number)
+  }
+ console.log(passwordCharacters)
+
+var randomPassword =""
+
+for (var i = 0; i < passwordLength; i++) {
+  randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+  console.log(randomPassword)
 }
+return randomPassword
+}
+
 
 
 // Write password to the #password input
@@ -22,8 +70,9 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-console.log("your password is")
+
+  // Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);
+  console.log("your password is")
+}
