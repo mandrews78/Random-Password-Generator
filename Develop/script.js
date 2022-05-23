@@ -7,7 +7,6 @@ var upperLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "
 var special = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+"];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-
 //Prompt asking for how many characters the user would like in their passowrd.  It can be between 8 and 128 characters.
 function generatePassword() {
   var passwordLength = (prompt("How many characters do you want your password to contain?"));
@@ -24,8 +23,7 @@ function generatePassword() {
   var numberInpassword = confirm("Click OK if you want a number in your password");
   var lowerInpassword = confirm("Click OK if you want a lowercase letter in your password");
   var upperInpasswprd = confirm("Click OK if you want an upercase leter in your password");
-  
-
+ 
   //Loop if no paramaters are selected.
   while (lowerInpassword === false && upperInpasswprd === false && specialInpassword === false && numberInpassword === false) {
     alert("You must click OK for at least one of the parameters");
@@ -57,7 +55,6 @@ function generatePassword() {
   }
   return password;
 }
-
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
