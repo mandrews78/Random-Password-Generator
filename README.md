@@ -1,7 +1,7 @@
 The Password Generator
+![image](https://user-images.githubusercontent.com/70594281/170982004-a023ab73-45be-434e-b49c-9b2581e205a3.png)
 
 This project was to create a password generator, that would generate a secure random password.
-image.png
 
 This application with present you with a series of prompts for different criteria for the random password.
 At each prompt you are required to select if you want the criteria included in the random password.
