@@ -1,6 +1,7 @@
 The Password Generator
 
 This project was to create a password generator, that would generate a secure random password.
+image.png
 
 This application with present you with a series of prompts for different criteria for the random password.
 At each prompt you are required to select if you want the criteria included in the random password.
